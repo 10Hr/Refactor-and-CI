@@ -27,20 +27,20 @@ jobs:
     - name: Install project dependencies
       run: |
         poetry install
-      working-directory: path/to/your/project  # Set the path to your project
+      working-directory: ./refactorNCI  # Set the path to your project
 
     - name: Run Flake8
       run: |
         poetry run flake8
-      working-directory: path/to/your/project  # Set the path to your project
+      working-directory: ./refactorNCI  # Set the path to your project
 
     - name: Run tests and generate code coverage report
       run: |
-        poetry run pytest --cov=path/to/your/project
-      working-directory: path/to/your/project  # Set the path to your project
+        poetry run pytest --cov=./refactorNCI
+      working-directory: ./refactorNCI  # Set the path to your project
 
     - name: Upload code coverage results
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
-        path: path/to/your/project/htmlcov  # Set the path to your coverage report
+        path: ./refactorNCI/htmlcov  # Set the path to your coverage report
