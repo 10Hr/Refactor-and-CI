@@ -54,8 +54,3 @@ def testremove():
 def testlambda():
     dL.map(lambda x: x**2)
     assert str(dL) == "(0, (1764, (1, (4, (1156, (9, (1, ('Trailer', None))))))))"
-
-def testiter():
-    for node in dL: 
-        print(node.get_element() == dn.__next__().get_element())
-    dL
