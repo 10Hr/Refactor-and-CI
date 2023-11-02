@@ -31,8 +31,6 @@ jobs:
 
     - name: Run Flake8
       run: |
-        poetry update flake8
-        poetry self update
         poetry run flake8
       working-directory: ./refactorNCI
 
