@@ -27,12 +27,13 @@ jobs:
     - name: Install project dependencies, including Flake8
       run: |
         poetry install
-        pip install flake8
+        poetry install flake8
       working-directory: ./refactorNCI
 
     - name: Run Flake8
       run: |
         poetry update flake8
+        poetry self update
         poetry run flake8
       working-directory: ./refactorNCI
 
