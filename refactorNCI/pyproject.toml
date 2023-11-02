@@ -6,7 +6,7 @@ authors = ["10Hr <10hourmail@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 flake8 = "^4.0.1"
 
 
