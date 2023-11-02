@@ -3,7 +3,7 @@ name: Python CI
 on:
   push:
     branches:
-      - main  # You can adjust this to the branch you want to trigger the workflow on
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x  # Choose the Python version you want to use
+        python-version: 3.x
 
     - name: Install Poetry
       run: |
@@ -24,23 +24,23 @@ jobs:
         echo "$HOME/.poetry/bin" >> $GITHUB_PATH
       if: runner.os == 'Linux' || runner.os == 'macOS'
 
-    - name: Install project dependencies
+    - name: Install project dependencies, including Flake8
       run: |
         poetry install
-      working-directory: ./refactorNCI  # Set the path to your project
+      working-directory: ./refactorNCI
 
     - name: Run Flake8
       run: |
         poetry run flake8
-      working-directory: ./refactorNCI  # Set the path to your project
+      working-directory: ./refactorNCI
 
     - name: Run tests and generate code coverage report
       run: |
         poetry run pytest --cov=./refactorNCI
-      working-directory: ./refactorNCI  # Set the path to your project
+      working-directory: ./refactorNCI
 
     - name: Upload code coverage results
       uses: actions/upload-artifact@v2
       with:
         name: coverage-report
-        path: ./refactorNCI/htmlcov  # Set the path to your coverage report
+        path: ./refactorNCI/htmlcov
